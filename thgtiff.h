@@ -14,6 +14,12 @@ typedef unsigned short      WORD;
 #define S_IREAD		__S_IREAD
 #define S_IWRITE	__S_IWRITE
 
+#ifdef __GNUC__
+	#define O_BINARY	0
+
+	#include <unistd.h>
+	#include <fcntl.h>
+#endif
 
 #pragma pack(1)
 // Bmp header
