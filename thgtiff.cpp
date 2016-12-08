@@ -1,11 +1,16 @@
 #include "thgtiff.h"
 
-int main(){
-	char *file = "THG_Gl_wR_1200.tiff";
+int main(int args, char* arg[]){
+	//char *file = "THG_Gl_wR_1200.tiff";
 
-	//int r = TiffToBmp(file, "THG_Gl_wR_1200.bmp");
+	if(args != 2){
+		printf("Usage: thgtiff file.tiff.\r\n");
+		return 0;
+	}
 
-	int r = TiffToLight(file, "THG_Gl_wR_1200.bmp");
+	//int r = TiffToBmp(arg[1], "result.bmp");
+
+	int r = TiffToLight(arg[1], "result.bmp");
 
 	return 0;
 }
