@@ -14,9 +14,11 @@ typedef unsigned short      WORD;
 #define S_IREAD		__S_IREAD
 #define S_IWRITE	__S_IWRITE
 
-#ifdef __GNUC__
+#ifndef O_BINARY
 	#define O_BINARY	0
+#endif
 
+#ifdef __GNUC__
 	#include <unistd.h>
 	#include <fcntl.h>
 #endif
@@ -206,8 +208,10 @@ int TiffToLight(char *file, char *to){
 			int g = TIFFGetG(raster[x + y * width]);
 			int b = TIFFGetB(raster[x + y * width]);
 
-			if(r != g || g != b)
-				int sadf = 44567;
+			if(r != g || g != b){
+				printf("Error! Pixel color failed: R != G || G != B.\r\n");
+				return 0;
+			}
 
 			if(r > 64){
 				// Light found

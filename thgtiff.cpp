@@ -8,9 +8,9 @@ int main(int args, char* arg[]){
 		return 0;
 	}
 
-	//int r = TiffToBmp(arg[1], "result.bmp");
+	//int r = TiffToBmp(arg[1], (char*)"result.bmp");
 
-	int r = TiffToLight(arg[1], "result.bmp");
+	int r = TiffToLight(arg[1], (char*)"result.bmp");
 
 	return 0;
 }
